@@ -2,8 +2,10 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/commo
 import { CreaturesService } from './creatures.service';
 import { CreateCreatureDto } from './dto/create-creature.dto';
 import { UpdateCreatureDto } from './dto/update-creature.dto';
+import { ApiTags } from '@nestjs/swagger';
 
 @Controller('creatures')
+@ApiTags('creatures')
 export class CreaturesController {
   constructor(private readonly creaturesService: CreaturesService) {}
 
@@ -12,9 +14,9 @@ export class CreaturesController {
     return this.creaturesService.create(createCreatureDto);
   }
 
-  @Get()
-  findAll() {
-    return this.creaturesService.findAll();
+  @Get('extinct')
+  findExtinct() {
+    return this.creaturesService.findExtinct();
   }
 
   @Get(':id')
@@ -23,7 +25,9 @@ export class CreaturesController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateCreatureDto: UpdateCreatureDto) {
+  update(
+    @Param('id') id: string, 
+    @Body() updateCreatureDto: UpdateCreatureDto) {
     return this.creaturesService.update(+id, updateCreatureDto);
   }
 
