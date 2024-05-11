@@ -32,8 +32,7 @@ async function main() {
   });
 
 
-
-  console.log({ post1, post2 });
+  console.log({ post1, post2});
 }
 
 // execute the main function

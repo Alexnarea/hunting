@@ -5,7 +5,6 @@ import { PrismaService } from 'src/prisma/prisma.service';
 
 @Injectable()
 export class CreaturesService {
-  findExtinct: any;
   constructor(private prisma: PrismaService){}
 
   create(createCreatureDto: CreateCreatureDto){
@@ -13,7 +12,7 @@ export class CreaturesService {
   }
 
   findAll() {
-    return this.prisma.creature.findMany({ where: { extinct: true} });
+    return this.prisma.creature.findMany({ where: { extinct: false} });
   }
 
   findOne(id: number) {

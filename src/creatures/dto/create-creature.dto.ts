@@ -14,5 +14,5 @@ export class CreateCreatureDto {
     countLastSee: number;
 
     @ApiProperty({ required: false, default: false})
-    extinct?: boolean = false;
+    extinct?: boolean;
 }

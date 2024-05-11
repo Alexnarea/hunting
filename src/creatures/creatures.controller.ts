@@ -16,7 +16,7 @@ export class CreaturesController {
 
   @Get('extinct')
   findExtinct() {
-    return this.creaturesService.findExtinct();
+    return this.creaturesService.findAll();
   }
 
   @Get(':id')
