@@ -4,8 +4,8 @@ import { CreateCreatureDto } from './dto/create-creature.dto';
 import { UpdateCreatureDto } from './dto/update-creature.dto';
 import { ApiTags } from '@nestjs/swagger';
 
-@Controller('creatures')
-@ApiTags('creatures')
+@Controller('criaturas')
+@ApiTags('criaturas')
 export class CreaturesController {
   constructor(private readonly creaturesService: CreaturesService) {}
 
@@ -16,7 +16,7 @@ export class CreaturesController {
 
   @Get('extinct')
   findExtinct() {
-    return this.creaturesService.findAll();
+    return this.creaturesService.findAllExtinct();
   }
 
   @Get(':id')
@@ -25,9 +25,7 @@ export class CreaturesController {
   }
 
   @Patch(':id')
-  update(
-    @Param('id') id: string, 
-    @Body() updateCreatureDto: UpdateCreatureDto) {
+  update(@Param('id') id: string, @Body() updateCreatureDto: UpdateCreatureDto) {
     return this.creaturesService.update(+id, updateCreatureDto);
   }
 

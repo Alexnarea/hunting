@@ -5,6 +5,9 @@ import { PrismaService } from 'src/prisma/prisma.service';
 
 @Injectable()
 export class CreaturesService {
+  findAllExtinct() {
+    throw new Error('Method not implemented.');
+  }
   constructor(private prisma: PrismaService){}
 
   create(createCreatureDto: CreateCreatureDto){
@@ -27,6 +30,6 @@ export class CreaturesService {
   }
 
   remove(id: number) {
-    return this.prisma.article.delete({ where: {id}});
+    return this.prisma.creature.delete({ where: {id}});
   }
 }
